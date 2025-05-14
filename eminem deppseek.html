@@ -1,0 +1,1382 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eminem - The Rap God</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #e10600;
+            --primary-dark: #c00500;
+            --secondary: #1a1a1a;
+            --dark: #121212;
+            --darker: #0a0a0a;
+            --light: #e0e0e0;
+            --lighter: #f5f5f5;
+            --text: #f5f5f5;
+            --text-secondary: #b3b3b3;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.8;
+            background-color: var(--dark);
+            color: var(--text);
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Oswald', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        a {
+            color: var(--primary);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        a:hover {
+            color: var(--light);
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        
+        /* Header */
+        header {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                        url('https://wallpapers.com/images/hd/eminem-with-his-middle-fingers-ugvrqb6rnhk8owwr.jpg') center/cover no-repeat;
+            color: white;
+            text-align: center;
+            padding: 4rem 1rem;
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .header-content {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+        
+        h1 {
+            font-size: clamp(3rem, 8vw, 6rem);
+            margin: 0;
+            text-shadow: 3px 3px 0 var(--primary);
+            font-weight: 900;
+            line-height: 1;
+            margin-bottom: 1rem;
+            animation: fadeInDown 1s ease;
+        }
+        
+        .subtitle {
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
+            margin-bottom: 2rem;
+            color: var(--light);
+            animation: fadeIn 1.5s ease;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin: 2rem 0;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .social-links a {
+            color: var(--text);
+            font-size: 1.8rem;
+            transition: all 0.3s ease;
+            background: rgba(0, 0, 0, 0.7);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid var(--primary);
+        }
+        
+        .social-links a:hover {
+            color: var(--primary);
+            background: rgba(225, 6, 0, 0.2);
+            transform: translateY(-5px);
+        }
+        
+        .scroll-down {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: var(--text);
+            font-size: 2rem;
+            animation: bounce 2s infinite;
+            cursor: pointer;
+            z-index: 2;
+        }
+        
+        .scroll-down:hover {
+            color: var(--primary);
+        }
+        
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(18, 18, 18, 0.95);
+            z-index: 1000;
+            border-bottom: 2px solid var(--primary);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .logo {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            color: var(--text);
+            font-weight: 500;
+            font-size: 1.1rem;
+            position: relative;
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            bottom: -5px;
+            left: 0;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .section {
+            background: var(--secondary);
+            margin: 3rem 0;
+            padding: 3rem;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            border-left: 5px solid var(--primary);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .section:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(225, 6, 0, 0.2);
+        }
+        
+        h2 {
+            color: var(--primary);
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            margin-bottom: 2rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        h2::after {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 3px;
+            background: var(--primary);
+            bottom: -10px;
+            left: 0;
+        }
+        
+        h3 {
+            color: var(--light);
+            font-size: 1.5rem;
+            margin: 1.5rem 0 1rem;
+        }
+        
+        p {
+            margin-bottom: 1.5rem;
+            color: var(--text-secondary);
+        }
+        
+        ul, ol {
+            margin-bottom: 1.5rem;
+            padding-left: 2rem;
+        }
+        
+        li {
+            margin-bottom: 0.5rem;
+            color: var(--text-secondary);
+        }
+        
+        strong {
+            color: var(--light);
+        }
+        
+        /* Timeline */
+        .timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: var(--primary);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+            border-radius: 10px;
+        }
+        
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            right: -17px;
+            background-color: var(--dark);
+            border: 4px solid var(--primary);
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+        
+        .left {
+            left: 0;
+        }
+        
+        .right {
+            left: 50%;
+        }
+        
+        .content {
+            padding: 20px 30px;
+            background-color: var(--dark);
+            position: relative;
+            border-radius: 6px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            border: 1px solid #333;
+        }
+        
+        /* Discography */
+        .discography {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .album {
+            background: var(--dark);
+            border: 1px solid #333;
+            padding: 1.5rem;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .album:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(225, 6, 0, 0.3);
+            border-color: var(--primary);
+        }
+        
+        .album img {
+            border-radius: 5px;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease;
+        }
+        
+        .album:hover img {
+            transform: scale(1.03);
+        }
+        
+        .album h3 {
+            color: var(--primary);
+            margin: 1rem 0 0.5rem;
+            font-size: 1.3rem;
+        }
+        
+        .album p {
+            margin: 0.5rem 0;
+            font-size: 0.95rem;
+        }
+        
+        .album .year {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: var(--primary);
+            color: var(--dark);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.8rem;
+        }
+        
+        /* Stats */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        
+        .stat-item {
+            background: var(--dark);
+            padding: 2rem 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+            border: 1px solid #333;
+            transition: all 0.3s ease;
+        }
+        
+        .stat-item:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+            box-shadow: 0 10px 20px rgba(225, 6, 0, 0.1);
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            font-family: 'Oswald', sans-serif;
+        }
+        
+        .stat-label {
+            font-size: 1rem;
+            color: var(--text-secondary);
+        }
+        
+        /* Collaborations */
+        .collaborations {
+            margin: 3rem 0;
+        }
+        
+        .collab-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 2rem;
+            background: var(--dark);
+            padding: 1.5rem;
+            border-radius: 10px;
+            border-left: 5px solid var(--primary);
+            transition: all 0.3s ease;
+        }
+        
+        .collab-item:hover {
+            transform: translateX(10px);
+        }
+        
+        .collab-item img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 2rem;
+            border: 3px solid var(--primary);
+        }
+        
+        .collab-info h4 {
+            margin: 0;
+            color: var(--primary);
+            font-size: 1.3rem;
+        }
+        
+        .collab-info p {
+            margin: 0.5rem 0 0;
+        }
+        
+        /* Quotes */
+        .quote {
+            font-style: italic;
+            padding: 3rem 2rem 2rem;
+            margin: 3rem 0;
+            background: var(--dark);
+            border-left: 5px solid var(--primary);
+            position: relative;
+            border-radius: 5px;
+        }
+        
+        .quote::before {
+            content: "\201C";
+            font-size: 6rem;
+            color: var(--primary);
+            opacity: 0.3;
+            position: absolute;
+            left: 20px;
+            top: 10px;
+            line-height: 1;
+        }
+        
+        .quote p {
+            margin: 0;
+            font-size: 1.2rem;
+            position: relative;
+            z-index: 1;
+            color: var(--text);
+        }
+        
+        .quote-author {
+            text-align: right;
+            margin-top: 1.5rem;
+            font-weight: bold;
+            color: var(--primary);
+            font-size: 1.1rem;
+        }
+        
+        /* Gallery */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 3rem 0;
+        }
+        
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            height: 250px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .gallery-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(225, 6, 0, 0.2);
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 1rem;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .gallery-item:hover .gallery-caption {
+            transform: translateY(0);
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--darker);
+            color: white;
+            padding: 4rem 2rem 2rem;
+            text-align: center;
+            border-top: 1px solid #333;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            text-align: left;
+        }
+        
+        .footer-column h3 {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .footer-column li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-column a {
+            color: var(--text-secondary);
+            display: block;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-column a:hover {
+            color: var(--primary);
+            transform: translateX(5px);
+        }
+        
+        .copyright {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid #333;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+        
+        /* Back to top button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--primary);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5rem;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 1000;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            background: var(--primary-dark);
+            transform: translateY(-5px);
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0) translateX(-50%);
+            }
+            40% {
+                transform: translateY(-20px) translateX(-50%);
+            }
+            60% {
+                transform: translateY(-10px) translateX(-50%);
+            }
+        }
+        
+        /* Responsive */
+        @media screen and (max-width: 1024px) {
+            .container {
+                padding: 1.5rem;
+            }
+            
+            .section {
+                padding: 2rem;
+            }
+            
+            .timeline::after {
+                left: 31px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .timeline-item::after {
+                left: 18px;
+            }
+            
+            .left::before, .right::before {
+                left: 60px;
+                border: none;
+                border-top: 10px solid transparent;
+                border-bottom: 10px solid transparent;
+                border-left: 10px solid var(--dark);
+            }
+            
+            .right {
+                left: 0%;
+            }
+        }
+        
+        @media screen and (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background: var(--darker);
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-start;
+                padding-top: 2rem;
+                transition: all 0.5s ease;
+                z-index: 999;
+            }
+            
+            .nav-links.active {
+                left: 0;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .discography {
+                grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            }
+            
+            .collab-item {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .collab-item img {
+                margin-right: 0;
+                margin-bottom: 1.5rem;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+        }
+        
+        @media screen and (max-width: 480px) {
+            header {
+                padding: 3rem 1rem;
+            }
+            
+            .section {
+                padding: 1.5rem;
+            }
+            
+            .stats {
+                grid-template-columns: 1fr;
+            }
+            
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="logo">EMINEM</a>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="nav-links" id="navLinks">
+                <a href="#biografia">Biografia</a>
+                <a href="#carriera">Carriera</a>
+                <a href="#discografia">Discografia</a>
+                <a href="#impatto">Impatto</a>
+                <a href="#gallery">Gallery</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <h1>Eminem</h1>
+            <p class="subtitle">Marshall Bruce Mathers III - The Rap God</p>
+            
+            <div class="social-links">
+                <a href="https://www.facebook.com/eminem" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://twitter.com/Eminem" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.instagram.com/eminem/" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.youtube.com/user/EminemVEVO" target="_blank"><i class="fab fa-youtube"></i></a>
+                <a href="https://open.spotify.com/artist/7dGJo4pcD2V6oG8kP0tJRR" target="_blank"><i class="fab fa-spotify"></i></a>
+            </div>
+        </div>
+        
+        <a href="#biografia" class="scroll-down">
+            <i class="fas fa-chevron-down"></i>
+        </a>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Biografia -->
+        <section class="section" id="biografia">
+            <h2>Biografia</h2>
+            <p>Marshall Bruce Mathers III, noto al mondo come Eminem (o con lo pseudonimo Slim Shady), è nato il 17 ottobre 1972 a St. Joseph, Missouri. Cresciuto nella periferia di Detroit, Michigan, Eminem ha vissuto un'infanzia difficile segnata dalla povertà e dall'assenza della figura paterna.</p>
+            
+            <div class="quote">
+                <p>"La mia vita è stata una montagna russa. Sono passato dal non avere nulla ad avere tutto, e poi quasi a perdere tutto di nuovo."</p>
+                <p class="quote-author">- Eminem</p>
+            </div>
+            
+            <p>La madre, Debbie Mathers-Briggs, ha avuto un rapporto complicato con il figlio, tema che Eminem ha spesso affrontato nelle sue canzoni. Nonostante le difficoltà, Eminem ha sviluppato una passione precoce per la musica hip-hop, iniziando a rappare all'età di 14 anni.</p>
+            
+            <p>Dopo anni di gavetta nella scena underground di Detroit, Eminem ha ottenuto il suo primo contratto discografico nel 1996 con la Interscope Records grazie all'interessamento del produttore Dr. Dre. Questo incontro si è rivelato fondamentale per la carriera del rapper.</p>
+            
+            <p>Oltre alla musica, Eminem ha avuto successo anche come attore, con il film semi-autobiografico "8 Mile" (2002) che gli è valso l'Oscar per la migliore canzone originale con "Lose Yourself".</p>
+            
+            <div class="stats">
+                <div class="stat-item">
+                    <div class="stat-number">230M+</div>
+                    <div class="stat-label">Dischi venduti</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">15</div>
+                    <div class="stat-label">Grammy vinti</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">1</div>
+                    <div class="stat-label">Oscar vinto</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">11</div>
+                    <div class="stat-label">Album studio</div>
+                </div>
+            </div>
+            
+            <h3>Vita Personale</h3>
+            <p>Eminem ha avuto una vita personale tumultuosa. Si è sposato due volte con Kim Scott (1999-2001 e 2006) e ha una figlia, Hailie Jade, nata nel 1995. Ha anche adottato altre due figlie: Alaina (nipote di Kim) e Whitney (figlia di un'amica di Kim).</p>
+            
+            <p>Tra il 2005 e il 2008, Eminem ha lottato con una grave dipendenza da farmaci antidolorifici, che ha quasi messo fine alla sua carriera e alla sua vita. Dopo essere entrato in riabilitazione nel 2008, è riuscito a superare la dipendenza.</p>
+            
+            <h3>Shady Records</h3>
+            <p>Nel 1999, Eminem ha fondato la Shady Records insieme a Paul Rosenberg. L'etichetta ha lanciato artisti come 50 Cent, D12, Obie Trice e Yelawolf. La Shady Records è diventata una delle etichette hip-hop più influenti degli anni 2000.</p>
+        </section>
+
+        <!-- Carriera -->
+        <section class="section" id="carriera">
+            <h2>Carriera Musicale</h2>
+            <p>La carriera di Eminem può essere divisa in diverse fasi, ognuna caratterizzata da uno stile e tematiche diverse:</p>
+            
+            <div class="timeline">
+                <div class="timeline-item left">
+                    <div class="content">
+                        <h3>1996-1997: Gli inizi</h3>
+                        <p>Pubblicazione dell'album indipendente "Infinite" con il gruppo Soul Intent. L'album non ottiene successo commerciale ma mostra il potenziale di Eminem. In questo periodo partecipa a numerose battle rap a Detroit.</p>
+                    </div>
+                </div>
+                <div class="timeline-item right">
+                    <div class="content">
+                        <h3>1999: The Slim Shady LP</h3>
+                        <p>Il primo album major, prodotto da Dr. Dre, vince il Grammy come miglior album rap. Contiene successi come "My Name Is" e "Guilty Conscience". Vendite: 5 milioni di copie USA. Introduce il personaggio di Slim Shady.</p>
+                    </div>
+                </div>
+                <div class="timeline-item left">
+                    <div class="content">
+                        <h3>2000: The Marshall Mathers LP</h3>
+                        <p>Diventa l'album più venduto nella storia del rap, con oltre 1.76 milioni di copie nella prima settimana. Include hit come "The Real Slim Shady" e "Stan". Vendite: 11 milioni di copie USA. Vince il Grammy per il miglior album rap.</p>
+                    </div>
+                </div>
+                <div class="timeline-item right">
+                    <div class="content">
+                        <h3>2002: The Eminem Show</h3>
+                        <p>Un altro successo commerciale che esplora temi più personali e politici. Include "Without Me" e "Cleanin' Out My Closet". Vendite: 10 milioni di copie USA. Vince nuovamente il Grammy per il miglior album rap.</p>
+                    </div>
+                </div>
+                <div class="timeline-item left">
+                    <div class="content">
+                        <h3>2004: Encore</h3>
+                        <p>Riceve recensioni contrastanti ma vende comunque milioni di copie. Segna l'inizio di un periodo difficile per Eminem, con problemi di dipendenza da farmaci. Vendite: 5 milioni di copie USA. Include il successo "Mockingbird".</p>
+                    </div>
+                </div>
+                <div class="timeline-item right">
+                    <div class="content">
+                        <h3>2009: Relapse e Recovery</h3>
+                        <p>Dopo un periodo di pausa, Eminem torna con due album che segnano il suo ritorno in forma. "Not Afraid" e "Love the Way You Lie" diventano successi globali. Vendite combinate: 15 milioni di copie. Recovery vince il Grammy per il miglior album rap.</p>
+                    </div>
+                </div>
+                <div class="timeline-item left">
+                    <div class="content">
+                        <h3>2013-presente: La maturità artistica</h3>
+                        <p>Con "The Marshall Mathers LP 2", "Revival", "Kamikaze" e "Music to Be Murdered By", Eminem continua a dominare le classifiche pur affrontando critiche e cambiando stile. Vendite combinate: 20+ milioni di copie. Sperimenta con flow più tecnici e testi più complessi.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <h3>Carriera Cinematografica</h3>
+            <p>Oltre alla musica, Eminem ha avuto una breve ma significativa carriera cinematografica:</p>
+            <ul>
+                <li><strong>8 Mile (2002):</strong> Film semi-autobiografico che racconta la sua ascesa nella scena rap di Detroit. Vince l'Oscar per la miglior canzone originale con "Lose Yourself".</li>
+                <li><strong>The Wash (2001):</strong> Piccolo ruolo accanto a Dr. Dre.</li>
+                <li><strong>Funny People (2009):</strong> Cameo nel film di Judd Apatow.</li>
+                <li><strong>Southpaw (2015):</strong> Ha scritto e prodotto la colonna sonora.</li>
+            </ul>
+        </section>
+
+        <!-- Discografia -->
+        <section class="section" id="discografia">
+            <h2>Discografia Completa</h2>
+            <p>Ecco tutti gli album studio di Eminem, dalla sua prima uscita indipendente fino alle produzioni più recenti:</p>
+            
+            <div class="discography">
+                <div class="album">
+                    <span class="year">1996</span>
+                    <img src="https://i1.sndcdn.com/artworks-000140784180-tht4xm-t500x500.jpg" alt="Infinite album cover">
+                    <h3>Infinite</h3>
+                    <p><strong>Etichetta:</strong> Web Entertainment</p>
+                    <p><strong>Singoli:</strong> "Infinite", "It's OK"</p>
+                    <p><strong>Vendite:</strong> ~1,000 copie</p>
+                </div>
+                <div class="album">
+                    <span class="year">1999</span>
+                    <img src="https://upload.wikimedia.org/wikipedia/en/3/35/Eminem_-_The_Slim_Shady_LP_CD_cover.jpg" alt="The Slim Shady LP album cover">
+                    <h3>The Slim Shady LP</h3>
+                    <p><strong>Etichetta:</strong> Aftermath/Interscope</p>
+                    <p><strong>Singoli:</strong> "My Name Is", "Guilty Conscience"</p>
+                    <p><strong>Vendite:</strong> 5 milioni USA</p>
+                </div>
+                <div class="album">
+                    <span class="year">2000</span>
+                    <img src="https://upload.wikimedia.org/wikipedia/en/a/ae/The_Marshall_Mathers_LP.jpg" alt="The Marshall Mathers LP album cover">
+                    <h3>The Marshall Mathers LP</h3>
+                    <p><strong>Etichetta:</strong> Aftermath/Interscope</p>
+                    <p><strong>Singoli:</strong> "The Real Slim Shady", "Stan"</p>
+                    <p><strong>Vendite:</strong> 11 milioni USA</p>
+                </div>
+                <div class="album">
+                    <span class="year">2002</span>
+                    <img src="https://upload.wikimedia.org/wikipedia/en/3/35/The_Eminem_Show.jpg" alt="The Eminem Show album cover">
+                    <h3>The Eminem Show</h3>
+                    <p><strong>Etichetta:</strong> Aftermath/Interscope</p>
+                    <p><strong>Singoli:</strong> "Without Me", "Cleanin' Out My Closet"</p>
+                    <p><strong>Vendite:</strong> 10 milioni USA</p>
+                </div>
+                <div class="album">
+                    <span class="year">2004</span>
+                    <img src="https://upload.wikimedia.org/wikipedia/en/b/b4/Encore_%28Eminem_album%29_coverart.jpg" alt="Encore album cover">
+                    <h3>Encore</h3>
+                    <p><strong>Etichetta:</strong> Aftermath/Interscope</p>
+                    <p><strong>Singoli:</strong> "Just Lose It", "Mockingbird"</p>
+                    <p><strong>Vendite:</strong> 5 milioni USA</p>
+                </div>
+                <div class="album">
+                    <span class="year">2009</span>
+                    <img src="https://m.media-amazon.com/images/I/81lWZ4lbk2L._UF1000,1000_QL80_.jpg" alt="Relapse album cover">
+                    <h3>Relapse</h3>
+                    <p><strong>Etichetta:</strong> Aftermath/Interscope</p>
+                    <p><strong>Singoli:</strong> "Crack a Bottle", "Beautiful"</p>
+                    <p><strong>Vendite:</strong> 3 milioni USA</p>
+                </div>
+                <div class="album">
+                    <span class="year">2010</span>
+                    <img src="https://m.media-amazon.com/images/I/71JZDiN8BEL._UF1000,1000_QL80_.jpg" alt="Recovery album cover">
+                    <h3>Recovery</h3>
+                    <p><strong>Etichetta:</strong> Aftermath/Interscope</p>
+                    <p><strong>Singoli:</strong> "Not Afraid", "Love the Way You Lie"</p>
+                    <p><strong>Vendite:</strong> 6 milioni USA</p>
+                </div>
+                <div class="album">
+                    <span class="year">2013</span>
+                    <img src="https://upload.wikimedia.org/wikipedia/en/8/87/The_Marshall_Mathers_LP_2.png" alt="The Marshall Mathers LP 2 album cover">
+                    <h3>The Marshall Mathers LP 2</h3>
+                    <p><strong>Etichetta:</strong> Aftermath/Interscope</p>
+                    <p><strong>Singoli:</strong> "Rap God", "The Monster"</p>
+                    <p><strong>Vendite:</strong> 4 milioni USA</p>
+                </div>
+                <div class="album">
+                    <span class="year">2017</span>
+                    <img src="https://images.rockol.it/OJyaHocdtRTcOaMH4mMJBmdkYL4=/1200x900/smart/rockol-img/img/foto/upload/revival-eminem-cover-ts1513614389.jpeg" alt="Revival album cover">
+                    <h3>Revival</h3>
+                    <p><strong>Etichetta:</strong> Aftermath/Interscope</p>
+                    <p><strong>Singoli:</strong> "Walk on Water", "River"</p>
+                    <p><strong>Vendite:</strong> 1 milione USA</p>
+                </div>
+                <div class="album">
+                    <span class="year">2018</span>
+                    <img src="https://upload.wikimedia.org/wikipedia/en/6/62/Eminem_-_Kamikaze.jpg" alt="Kamikaze album cover">
+                    <h3>Kamikaze</h3>
+                    <p><strong>Etichetta:</strong> Aftermath/Interscope</p>
+                    <p><strong>Singoli:</strong> "Lucky You", "Venom"</p>
+                    <p><strong>Vendite:</strong> 2 milioni USA</p>
+                </div>
+                <div class="album">
+                    <span class="year">2020</span>
+                    <img src="https://m.media-amazon.com/images/I/71Ftqs6ho-L.jpg" alt="Music to Be Murdered By album cover">
+                    <h3>Music to Be Murdered By</h3>
+                    <p><strong>Etichetta:</strong> Aftermath/Interscope</p>
+                    <p><strong>Singoli:</strong> "Godzilla", "Darkness"</p>
+                    <p><strong>Vendite:</strong> 1.5 milioni USA</p>
+                </div>
+            </div>
+            
+            <h3>Collaborazioni Importanti</h3>
+            <p>Eminem ha collaborato con numerosi artisti durante la sua carriera:</p>
+            <ul>
+                <li><strong>Dr. Dre:</strong> "Forgot About Dre", "Guilty Conscience"</li>
+                <li><strong>50 Cent:</strong> "Patiently Waiting", "Crack a Bottle"</li>
+                <li><strong>Rihanna:</strong> "Love the Way You Lie", "The Monster"</li>
+                <li><strong>Ed Sheeran:</strong> "River"</li>
+                <li><strong>Beyoncé:</strong> "Walk on Water"</li>
+                <li><strong>Jay-Z:</strong> "Renegade"</li>
+            </ul>
+        </section>
+
+        <!-- Stile e Influenze -->
+        <section class="section" id="stile">
+            <h2>Stile e Influenze</h2>
+            <p>Eminem è riconosciuto per il suo flow unico, la capacità di cambiare ritmo e la padronanza tecnica delle rime. Il suo stile combina:</p>
+            <ul>
+                <li><strong>Technicalità:</strong> Schemi di rime complessi, allitterazioni e multisillabiche</li>
+                <li><strong>Contenuti:</strong> Dalla satira sociale a storie personali profondamente emotive</li>
+                <li><strong>Personaggi:</strong> La distinzione tra Marshall Mathers, Eminem e Slim Shady</li>
+                <li><strong>Influenze:</strong> Artisti come LL Cool J, Run-DMC, Nas e Tupac Shakur</li>
+            </ul>
+            
+            <div class="quote">
+                <p>"Eminem è probabilmente il miglior paroliere che abbia mai sentito. La sua capacità di raccontare storie e la sua padronanza tecnica sono senza pari."</p>
+                <p class="quote-author">- Elton John</p>
+            </div>
+            
+            <p>Eminem ha anche rivoluzionato il rap bianco, dimostrando che un artista bianco poteva competere e spesso superare i migliori rapper afroamericani in un genere storicamente dominato da questi ultimi.</p>
+            
+            <h3>Evoluzione dello stile</h3>
+            <p>Lo stile di Eminem è evoluto significativamente nel corso della sua carriera:</p>
+            <ul>
+                <li><strong>1996-1999:</strong> Stile più grezzo e underground, influenzato dalla scena di Detroit</li>
+                <li><strong>1999-2004:</strong> Periodo "Slim Shady" con testi provocatori e umorismo nero</li>
+                <li><strong>2004-2008:</strong> Periodo più oscuro con temi di dipendenza e depressione</li>
+                <li><strong>2009-2013:</strong> Rinascita con uno stile più maturo e riflessivo</li>
+                <li><strong>2013-presente:</strong> Sperimentazione con diversi flow e temi più politici</li>
+            </ul>
+            
+            <h3>Abilità Tecnica</h3>
+            <p>Eminem è considerato uno dei migliori tecnici nella storia del rap:</p>
+            <ul>
+                <li><strong>Flow:</strong> Capacità di cambiare ritmo e schema di rime all'interno della stessa canzone</li>
+                <li><strong>Rime:</strong> Uso avanzato di rime multisillabiche e schemi complessi</li>
+                <li><strong>Storytelling:</strong> Canzoni come "Stan" e "Mockingbird" mostrano la sua abilità nel raccontare storie</li>
+                <li><strong>Velocità:</strong> Detiene il record per la canzone rap con più parole al minuto ("Rap God")</li>
+            </ul>
+        </section>
+
+        <!-- Impatto Culturale -->
+        <section class="section" id="impatto">
+            <h2>Impatto Culturale</h2>
+            <p>Eminem è considerato uno degli artisti più influenti nella storia della musica hip-hop e della cultura pop in generale:</p>
+            
+            <h3>Record e Riconoscimenti</h3>
+            <ul>
+                <li>15 Grammy Awards vinti</li>
+                <li>Oscar per la migliore canzone originale ("Lose Yourself")</li>
+                <li>Primo rapper a vincere l'Oscar per la migliore canzone</li>
+                <li>Artista con più album certificati platino nella storia della RIAA</li>
+                <li>Oltre 230 milioni di dischi venduti in tutto il mondo</li>
+                <li>Artista con più video VMA (Video Music Awards) vinti</li>
+                <li>Detentore del Guinness World Record per "Parole più rapide in una hit" (Rap God)</li>
+                <li>Primo artista bianco a comparire sulla copertina di The Source</li>
+            </ul>
+            
+            <h3>Influenza su altri artisti</h3>
+            <div class="collaborations">
+                <div class="collab-item">
+                    <img src="https://m.media-amazon.com/images/I/81bpmchtQ6L._UF1000,1000_QL80_.jpg" alt="50 Cent">
+                    <div class="collab-info">
+                        <h4>50 Cent</h4>
+                        <p>Scoperto e lanciato da Eminem, diventando una superstar globale. Hanno collaborato in numerose canzoni tra cui "Patiently Waiting" e "Crack a Bottle".</p>
+                    </div>
+                </div>
+                <div class="collab-item">
+                    <img src="https://www.dlso.it/site/wp-content/uploads/2017/04/damn-kendrick-lamar.jpg" alt="Kendrick Lamar">
+                    <div class="collab-info">
+                        <h4>Kendrick Lamar</h4>
+                        <p>Ha citato Eminem come una delle sue maggiori influenze, particolarmente per quanto riguarda la tecnica di scrittura e il flow complesso.</p>
+                    </div>
+                </div>
+                <div class="collab-item">
+                    <img src="https://i.scdn.co/image/ab67616d0000b27341c0ad3e39388ab332ffb023" alt="Logic">
+                    <div class="collab-info">
+                        <h4>Logic</h4>
+                        <p>Si è ispirato a Eminem per il suo approccio tecnico al rap. Ha spesso espresso la sua ammirazione per il flow e la capacità lirica di Eminem.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <h3>Shady Records</h3>
+            <p>Nel 1999, Eminem ha fondato la Shady Records, che ha lanciato artisti come 50 Cent, D12, Obie Trice e altri. L'etichetta continua a essere una forza importante nell'industria musicale.</p>
+            
+            <h3>Impatto sulla cultura pop</h3>
+            <ul>
+                <li>Ha portato l'hip-hop nelle case mainstream americane</li>
+                <li>Ha influenzato generazioni di artisti bianchi e neri</li>
+                <li>Ha contribuito a normalizzare il rap come forma d'arte letteraria</li>
+                <li>Ha affrontato temi sociali come la povertà, la dipendenza e la salute mentale</li>
+                <li>Ha ispirato dibattiti sulla libertà di espressione e la censura</li>
+            </ul>
+            
+            <h3>Eminem nella cultura popolare</h3>
+            <p>Eminem è diventato un'icona culturale che trascende la musica:</p>
+            <ul>
+                <li>Citato in numerosi film, serie TV e programmi televisivi</li>
+                <li>Personaggio in videogiochi come "Def Jam: Fight for NY"</li>
+                <li>Oggetto di studi accademici sulla sua poetica e influenza culturale</li>
+                <li>Presenza costante nelle classifiche e nei dibattiti sui "migliori rapper di tutti i tempi"</li>
+            </ul>
+        </section>
+
+        <!-- Controversie -->
+        <section class="section" id="controversie">
+            <h2>Controversie</h2>
+            <p>La carriera di Eminem è stata accompagnata da numerose controversie:</p>
+            
+            <h3>Testi controversi</h3>
+            <p>I testi di Eminem sono stati criticati per contenere:</p>
+            <ul>
+                <li>Omofobia (sebbene abbia successivamente chiarito le sue posizioni)</li>
+                <li>Violenza contro le donne (spiegata come personaggio Slim Shady)</li>
+                <li>Linguaggio esplicito e temi scabrosi</li>
+                <li>Attacchi a celebrità e personaggi pubblici</li>
+            </ul>
+            
+            <div class="quote">
+                <p>"Slim Shady è un personaggio. È un modo per esprimere la mia rabbia e frustrazione senza essere letterale."</p>
+                <p class="quote-author">- Eminem</p>
+            </div>
+            
+            <h3>Battaglie legali</h3>
+            <p>Eminem è stato coinvolto in numerose cause legali, tra cui:</p>
+            <ul>
+                <li>Cause per diffamazione da parte di celebrità menzionate nelle sue canzoni</li>
+                <li>Battaglie con la madre per diffamazione</li>
+                <li>Problemi con le case discografiche</li>
+                <li>Cause per possesso di armi e aggressione</li>
+            </ul>
+            
+            <h3>Problemi personali</h3>
+            <p>La vita personale di Eminem è stata travagliata:</p>
+            <ul>
+                <li>Dipendenza da farmaci (soprattutto tra il 2005 e il 2008)</li>
+                <li>Rapporto complicato con l'ex moglie Kim Scott</li>
+                <li>Morte dell'amico e membro dei D12 Proof nel 2006</li>
+                <li>Lotte con la depressione e l'ansia</li>
+                <li>Diverse overdose che hanno quasi messo fine alla sua vita</li>
+            </ul>
+            
+            <h3>Critiche e Difese</h3>
+            <p>Eminem ha ricevuto critiche da gruppi LGBT, femministi e conservatori, ma ha anche trovato difensori:</p>
+            <ul>
+                <li>Elton John lo ha difeso e ha collaborato con lui ai Grammy</li>
+                <li>Molti critici musicali hanno sottolineato la differenza tra il personaggio Slim Shady e Marshall Mathers</li>
+                <li>Ha vinto cause legali basate sul diritto alla libertà di espressione</li>
+            </ul>
+        </section>
+
+        <!-- Curiosità -->
+        <section class="section" id="curiosita">
+            <h2>Curiosità</h2>
+            <ul>
+                <li>Eminem è mancino, come si vede in molti suoi video</li>
+                <li>È un appassionato di videogiochi, soprattutto Call of Duty</li>
+                <li>Ha una vasta collezione di sneakers</li>
+                <li>È un grande fan dei gruppi rock come Metallica e Nirvana</li>
+                <li>Ha lavorato come cuoco in un ristorante prima del successo</li>
+                <li>Ha vinto il campionato mondiale di freestyle rap nel 1997</li>
+                <li>È apparso in diversi film oltre a "8 Mile", tra cui "The Interview"</li>
+                <li>Ha una figlia, Hailie Jade, che ha spesso menzionato nelle sue canzoni</li>
+                <li>È un grande fan dei Detroit Lions (NFL) e dei Detroit Pistons (NBA)</li>
+                <li>Ha una paura irrazionale dei palloncini</li>
+                <li>È dislessico, come ha rivelato in alcune interviste</li>
+                <li>Ha una collezione di oltre 100 paia di scarpe da ginnastica</li>
+                <li>Il suo film preferito è "Scarface"</li>
+                <li>Ha avuto un cameo nel film "The Wash" con Dr. Dre</li>
+                <li>Ha scritto canzoni per altri artisti sotto pseudonimo</li>
+                <li>Ha una passione per le auto d'epoca</li>
+                <li>È un fan accanito di horrorcore e horror movies</li>
+                <li>Ha un tatuaggio "D12" in memoria del suo amico Proof</li>
+                <li>Ha registrato "Lose Yourself" in una sola take</li>
+                <li>È apparso nel Guinness dei primati per diverse categorie</li>
+            </ul>
+            
+            <div class="quote">
+                <p>"Non mi importa di quello che pensa la gente. Faccio musica per me stesso prima di tutto. Se piace anche agli altri, è un bonus."</p>
+                <p class="quote-author">- Eminem</p>
+            </div>
+            
+            <h3>Fatti poco conosciuti</h3>
+            <ul>
+                <li>Ha lavorato come lavapiatti al Gilbert's Lodge a St. Clair Shores</li>
+                <li>Ha vissuto in una casa mobile con sua madre durante l'adolescenza</li>
+                <li>Ha frequentato la Lincoln High School a Warren, ma ha abbandonato a 17 anni</li>
+                <li>Il suo nome d'arte deriva dalla combinazione delle iniziali M&M (Marshall Mathers)</li>
+                <li>Ha tentato il suicidio a 20 anni dopo la rottura con Kim</li>
+                <li>Ha una stanza piena di premi e riconoscimenti che non guarda mai</li>
+                <li>Ha scritto un libro di poesie chiamato "The Way I Am"</li>
+                <li>Ha un ranch in Michigan dove si ritira per scrivere musica</li>
+            </ul>
+        </section>
+
+        <!-- Gallery -->
+        <section class="section" id="gallery">
+            <h2>Gallery</h2>
+            <p>Momenti iconici della carriera di Eminem:</p>
+            
+            <div class="gallery">
+                <div class="gallery-item">
+                    <img src="https://hips.hearstapps.com/hmg-prod/images/eminem-during-experience-music-project-opening-gala-at-news-photo-1716318175.jpg" alt="Eminem early career">
+                    <div class="gallery-caption">Gli inizi a Detroit</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://m.media-amazon.com/images/I/710SSdfRLOL._UF1000,1000_QL80_.jpg" alt="Eminem and Dr. Dre">
+                    <div class="gallery-caption">Con Dr. Dre, suo mentore</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://www.billboard.com/wp-content/uploads/2024/07/eminem-concert-detroit-2024-billboard-1548-1223059.jpg" alt="Eminem performing">
+                    <div class="gallery-caption">Performance live</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://cloudfront-eu-central-1.images.arcpublishing.com/madsack/IQ4BCRA5BJH3FKDORFMC4O7Y4E.jpg" alt="Eminem Oscar">
+                    <div class="gallery-caption">Vincitore dell'Oscar</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.tribune.com.pk/media/images/Eminem-and-his-daugher-Hallie1720847856-0/Eminem-and-his-daugher-Hallie1720847856-0.webp" alt="Eminem with daughter">
+                    <div class="gallery-caption">Con la figlia Hailie</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://media.pitchfork.com/photos/5fdcbf043093e196b7c225e6/4:3/w_1800,h_1350,c_limit/Eminem.jpg" alt="Eminem recent">
+                    <div class="gallery-caption">Eminem oggi</div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>Esplora</h3>
+                <ul>
+                    <li><a href="#biografia">Biografia</a></li>
+                    <li><a href="#carriera">Carriera</a></li>
+                    <li><a href="#discografia">Discografia</a></li>
+                    <li><a href="#impatto">Impatto</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Risorse</h3>
+                <ul>
+                    <li><a href="https://www.eminem.com" target="_blank">Sito Ufficiale</a></li>
+                    <li><a href="https://www.shadyrecords.com" target="_blank">Shady Records</a></li>
+                    <li><a href="https://www.youtube.com/user/EminemVEVO" target="_blank">YouTube</a></li>
+                    <li><a href="https://open.spotify.com/artist/7dGJo4pcD2V6oG8kP0tJRR" target="_blank">Spotify</a></li>
+                    <li><a href="https://www.imdb.com/name/nm0004896/" target="_blank">IMDb</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Contatti</h3>
+                <ul>
+                    <li><a href="mailto:info@eminem.com">Email</a></li>
+                    <li><a href="https://www.facebook.com/eminem" target="_blank">Facebook</a></li>
+                    <li><a href="https://twitter.com/Eminem" target="_blank">Twitter</a></li>
+                    <li><a href="https://www.instagram.com/eminem/" target="_blank">Instagram</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="social-links">
+            <a href="https://www.facebook.com/eminem" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://twitter.com/Eminem" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.instagram.com/eminem/" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.youtube.com/user/EminemVEVO" target="_blank"><i class="fab fa-youtube"></i></a>
+            <a href="https://open.spotify.com/artist/7dGJo4pcD2V6oG8kP0tJRR" target="_blank"><i class="fab fa-spotify"></i></a>
+            <a href="https://www.shadyrecords.com/" target="_blank"><i class="fas fa-record-vinyl"></i></a>
+        </div>
+        
+        <div class="copyright">
+            <p>&copy; 2025 Pagina tributo a Eminem - Tutte le informazioni e immagini sono proprietà di Venturini Edoardo</p>
+            <p>Pagina creata a scopo didattico e informativo</p>
+        </div>
+    </footer>
+
+    <!-- Back to top button -->
+    <div class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.getElementById('navLinks');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            mobileMenuBtn.innerHTML = navLinks.classList.contains('active') ? 
+                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+        
+        // Back to top button
+        const backToTopButton = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.add('active');
+            } else {
+                backToTopButton.classList.remove('active');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Add animation to sections when scrolling
+        const sections = document.querySelectorAll('.section');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = 1;
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+        
+        sections.forEach(section => {
+            section.style.opacity = 0;
+            section.style.transform = 'translateY(50px)';
+            section.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
